@@ -1,0 +1,181 @@
+body{
+		font-family: 'Malgun Gothic', 'Verdana';
+		background-color: #ffffff;
+		color: #000000;
+		margin: 0 ;
+		padding: 0;
+	}
+h1,h2,h3,h4,h5,h6{
+	font-size: 1.5em;
+	
+}
+h1{
+	font-size: 2em;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+div#wrapper{
+	width: 90%;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+div#header{
+	position: relative;
+	margin-bottom: 0;
+	padding:0;
+	color:#000;
+}
+div#title-box{
+	float : left;
+	text-align: center;
+	display: block; /* ¡ŸπŸ≤ﬁ */
+	
+}
+div#Login-box{
+	float: right;
+	margin: 10px;
+	font-size: 1.1em;
+	display: block;
+	color : #000000;
+}
+div#Login-box a:hover{
+	colo: #400040;
+	text-decoration: none;
+}
+div#Login-box a:active{
+	colo: #80ff00;
+	text-decoration: none;
+}
+div#menu-box{
+	clear:both;
+	margin-top: :40px;
+	
+}
+div#header h1{
+	color:#000000;
+	padding : 5px 0;
+	margin: 0;
+	border: none;
+	line-height: 2em;
+	font-weight: bold;
+	font-size: 32px;
+}
+div#content{
+	
+	/* background-image : url("../img/home/s.jpg"); */
+	margin-bottom: 30px;
+	min-height: 400px;
+	
+	 
+		
+}
+div#content-box{
+	clear:both;
+	text-align : center;
+	color: black;
+	
+}
+div#content-img{
+	
+}
+
+ul#menu{
+	text-align: right;
+	margin: 0;
+	border-bottom: 1px #0080ff;
+	position: relative;
+}
+ul#menu li{
+	display: inline;
+	list-style: none;
+	background-color: #00ff00;	
+}
+ul#menu li a{
+	padding: 10px 20px;
+	background-color: #0080ff;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 2.8em;
+	color : black;
+		
+}
+ul#menu li a:hover{
+	background-color: #8000ff;
+	text-decoration: none;
+		
+}
+ul#menu li a:active{
+	background-color: #ff8040;
+	text-decoration: none;
+		
+}
+div#footer{
+	clear: both;
+	color:#000000;
+	text-align: center;
+	padding:10px;
+	line-height: nomal;
+	font-size: 1.5em;
+}
+#user
+{margin: 150px auto;width:250px;}
+
+
+	 table,th,td{border: 1px solid black;border-collapse: collapse;text-align:center;background: #cce6ff }
+	#wt{width:20%}
+	#tb{width:70%; margin: 0 auto }
+	
+	
+	
+	.he-50{height:50px}
+	.height-500px{height:500px} 
+#deleteForm{
+	style="border:1px solid black"
+}
+
+#moveLoginForm{
+	background-color: #99ccff;
+    color: white;
+    font-size : 17px;
+    text-align: center;
+    display: inline-block;
+    
+}
+
+#joinLoginForm{
+	background-color: #99ccff;
+    color: white;
+    font-size : 17px;
+    text-align: center;
+    display: inline-block;
+    
+}
+.bgcolorisYellow{background-color: #ffff00}
+#contentBoxTab{
+	margin: auto;
+	
+}
+
+.height22px{
+	height:22px;
+}
+.pageBox{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+}
+.pageBox li{
+	display:inline;
+}
+
+#logoutButt{
+	background-color: #99ccff;
+    color: white;
+    font-size : 17px;
+    text-align: center;
+    display: inline-block;
+    
+}
