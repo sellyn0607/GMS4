@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
- 
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
@@ -15,8 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
 
@@ -24,7 +26,7 @@ import com.gms.web.cmm.Util;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/member")
 @SessionAttributes("user")
 public class MemberCtrl {
@@ -62,7 +64,8 @@ public class MemberCtrl {
 		memberService.remove(user);
 		return "redirect:/";
 	}
-	@RequestMapping("/login/{dir}/{page}")
+	
+	@PostMapping("/login/{dir}/{page}")
 	public String login(@PathVariable String dir,
 			@PathVariable String page,Model model,
 			@ModelAttribute("member") Member param) {
