@@ -14,5 +14,5 @@ public interface MemberMapper {
 	public void update(Member p);
 	public void delete(Member p);
 	public String login(Member p);
-	//public String exist(String p);
+	public String exist(String p);
 }

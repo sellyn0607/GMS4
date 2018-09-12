@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
+ 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
+
+import com.gms.web.cmm.Util;
+
+
 
 @Controller
 @RequestMapping("/member")
@@ -61,25 +66,19 @@ public class MemberCtrl {
 	public String login(@PathVariable String dir,
 			@PathVariable String page,Model model,
 			@ModelAttribute("member") Member param) {
-		/*Predicate<String> p = s -> !s.equals("");
-		System.out.println(">>>>>"+param.getUserid());
-		String r= mapper.exist(param.getUserid());
-		boolean b = p.test(r);
-		String loginval = "login_failed";*/
-		////////////////////////////////////////////////////
-		Function<Member,String> f = (t)->{
-			return mapper.login(t);
-		};
-		//String s2 = f.apply(param);
-			String result="";
-			if(f.apply(param).equals("1")){
-				model.addAttribute("user", mapper.selectOne(param.getUserid()));
-				result ="login:"+dir+"/"+page+".tiles";
-			}else {
-				result ="public:member/login.tiles";
-			}
-			
-			
+		
+		/*Predicate<String> p = s -> s.equals("1");
+		p.test(mapper.login(param));*/
+		String result="";
+		if(Predicate.isEqual("1").test(mapper.login(param))) {
+			//model.addAttribute("user", mapper.selectOne(param.getUserid()));
+			Member m = new Member();
+			m= mapper.selectOne(param.getUserid());
+			Util.log.accept(m.toString());
+			result ="login:"+dir+"/"+page+".tiles";
+		}else {
+			result ="public:member/login.tiles";
+		}
 			
 				return result;
 	}
