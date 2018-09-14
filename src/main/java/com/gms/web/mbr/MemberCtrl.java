@@ -1,6 +1,7 @@
 package com.gms.web.mbr;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -51,6 +52,8 @@ public class MemberCtrl {
 	}
 	@RequestMapping("/count")
 	public void count() {
+		
+		
 	}
 	@RequestMapping("/modify/{dir}/{page}")
 	public String modify(@ModelAttribute("user") Member user,Model model,@PathVariable String dir,
@@ -75,8 +78,8 @@ public class MemberCtrl {
 		String result="";
 		if(Predicate.isEqual("1").test(mapper.login(param))) {
 			//model.addAttribute("user", mapper.selectOne(param.getUserid()));
-			Member m = new Member();
-			m= mapper.selectOne(param.getUserid());
+			 //m = new Member();
+			 Member m= mapper.selectOne(param.getUserid());
 			Util.log.accept(m.toString());
 			result ="login:"+dir+"/"+page+".tiles";
 		}else {

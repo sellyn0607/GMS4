@@ -5,10 +5,7 @@ body{
 		margin: 0 ;
 		padding: 0;
 	}
-h1,h2,h3,h4,h5,h6{
-	font-size: 1.5em;
-	
-}
+
 h1{
 	font-size: 2em;
 	padding-bottom: 0;
@@ -31,7 +28,7 @@ div#header{
 div#title-box{
 	float : left;
 	text-align: center;
-	display: block; /* �ٹٲ� */
+	display: block; /* �ٹٲ� */
 	
 }
 div#Login-box{
@@ -124,12 +121,13 @@ div#footer{
 {margin: 150px auto;width:250px;}
 
 
-	 table,th,td{border: 1px solid black;border-collapse: collapse;text-align:center;background: #cce6ff }
+	 table,th,td{border: 1px solid black;border-collapse: collapse;/* text-align:center; */ }
 	#wt{width:20%}
-	#tb{width:70%; margin: 0 auto }
+	#tb{width:70%; /* margin: 0 auto */ }
 	
 	
-	
+	 a:hover {color: #ff0000;font-size: 15px} 
+
 	.he-50{height:50px}
 	.height-500px{height:500px} 
 #deleteForm{
