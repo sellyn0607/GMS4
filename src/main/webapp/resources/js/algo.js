@@ -34,7 +34,10 @@ algo.main={
 			let $t__r = $('#t__r');
 			$('<ul />').attr({id : 'side__menu'}).addClass('list-group').appendTo($t__l);
 			$('<li />').attr({id : 'arith'}).addClass('list-group-item').appendTo('#side__menu');
-			$('<a />').attr({href:'#'}).html('등차수열의 합').appendTo($('#arith')).click(e=>{
+			
+			let anchor = $.fn.anchor({txt:'등차수열의 합'});
+			
+			anchor.appendTo($('#arith')).click(e=>{
 				$('#t__r').empty();
 			
 				$('<div/>').attr({id:'ques'}).appendTo($t__r);
@@ -62,7 +65,7 @@ algo.main={
 				})*/
 				
 				$.each(arr,function(){
-					alert(this.name)
+					
 					$('<label/>').html(this.name).appendTo('#ques');
 					$('<input/>').attr({id: this.id,type:'text'}).appendTo('#ques');
 					$('<br/>').appendTo('#ques');
