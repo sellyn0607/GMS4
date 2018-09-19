@@ -177,3 +177,9 @@ div#footer{
     display: inline-block;
     
 }
+[class*=icon-page-login__]{
+	background-image: url("../img/logo.JPG");
+	background-size:  320px auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
