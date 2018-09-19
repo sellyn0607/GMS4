@@ -183,3 +183,105 @@ div#footer{
     background-repeat: no-repeat;
     display: inline-block;
 }
+
+
+
+.sign-in-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.sign-in-form__form__input{
+	display: block;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 50px;
+    color: #424242;
+}
+.sign-in-form__form__submit {
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+    padding: 13px 15px;
+    font-size: 17px;
+    line-height: 1.41;
+}
+.btn-priority {
+    background-color: #35C5F0;
+    border-color: #35C5F0;
+    color: white;
+}
+.sign-in-form__action {
+    margin: 20px 0;
+    text-align: center;
+    color: #424242;
+    font-size: 15px;
+    line-height: 1.4;
+}
+.sign-in-form__action__entry {
+    display: inline-block;
+    padding: 3px 5px;
+    margin: -3px 10px;
+}
+#main2 {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.container_add{
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+    width: calc(100vw - 80px);
+    max-width: 100%;
+    box-sizing: border-box;}
+.icon {
+    background-repeat: no-repeat;
+    background-size: 400px;
+    display: inline-block;
+}
+.signup-form__social__button {
+    margin-right: 20px;
+}
+.icon-sns-circle-md-kakao-talk {
+    width: 48px;
+    height: 48px;
+    background-position: top -68px left -78px;
+}
+.new_normal_user{
+	text-align: left;
+	
+}
+.p1{
+	font-size:13px;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.signup-form__policy__policy-list {
+    border: solid 1px #dbdbdb;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.signup-form__policy__check-all {
+    height: 22px;
+    line-height: 22px;
+    position: relative;
+    margin-bottom: 15px;
+}
+.signup-form__policy__check-all>.form-check {
+    position: absolute;
+    right: 15px;
+    top: 0;
+}
+.bold {
+    font-weight: bold;
+}

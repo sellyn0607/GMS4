@@ -23,7 +23,7 @@ function navUI() {
         +'<li class="nav-item">'
           +'<a id="board_list" class="nav-link" href="#">게시글 목록</a>'
         +'</li>'
-        +'<li class="nav-item">'
+        +'<li id="li_id" class="nav-item">'
           +'<a id="login_btn" class="nav-link" href="#">로그인</a>'
         +'</li>'
         +'<li class="nav-item">'

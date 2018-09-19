@@ -116,14 +116,18 @@ algo.main=(()=>{
 									url : ctx+'/algo/money', 
 									method : 'POST',
 									contentType : 'application/json',
-									data:JSON.stringify({ money : $('#x1').val()}),
+									data:JSON.stringify({ money : $('#x1').val()}), 
+									
 									success : d=>{
-										alert('성공이다'+d.text);
+										alert('성공이다'+d.text); 
+										
+										
 									},
 									error : (m1,m2,m3)=>{
 										alert('에러발생'+m1);
 										alert('에러발생'+m2);
 										alert('에러발생'+m3);
+									
 									}
 								})
 								

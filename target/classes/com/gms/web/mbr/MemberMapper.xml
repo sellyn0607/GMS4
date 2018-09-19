@@ -6,7 +6,7 @@
 <!--   <select id="selectOne" resultType="com.gms.web.domain.MemberDTO">
    SELECT USERID,NAME,AGE FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password}
   </select> -->
-  <insert id="insert">
+  <insert id="post">
   	insert into member(userid,teamid,name,roll,password,ssn,age,gender) values(#{userid},#{teamid},#{name},#{roll},#{password},#{ssn},#{age},#{gender});
   </insert>
   <select id="login" resultType="string">
@@ -15,9 +15,20 @@
 	<select id="exist" resultType="string">
   	SELECT USERID FROM MEMBER WHERE USERID LIKE #{userid}
   </select> 
-  <select id="selectOne" resultType="com.gms.web.mbr.Member">
-  	SELECT USERID,TEAMID,NAME,ROLL,PASSWORD,SSN,AGE,GENDER FROM MEMBER WHERE USERID LIKE #{userid}
+  <select id="get" resultType="com.gms.web.mbr.Member">
+  	SELECT USERID,TEAMID,NAME,ROLL,PASSWORD,SSN,AGE,GENDER FROM MEMBER 
+  	<where>
+  		<if test=" userid!= null and userid !=''">USERID LIKE #{userid}</if>
+  		<if test=" password != null and password !=''">and PASSWORD LIKE #{password}</if>
+  	</where>
+  	</select>
+  <select id="count" resultType="int">
+  SELECT COUNT(*) FROM MEMBER 
+  <where>
+   <if test="userid !=null and userid !=''">USERID LIKE #{userid}</if>
+  </where>
   </select>
+  
   <delete id="delete">
   	delete from member where userid like #{userid} and password like #{password} 
   </delete>
