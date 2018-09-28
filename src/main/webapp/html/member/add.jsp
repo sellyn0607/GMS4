@@ -31,7 +31,7 @@
 					<input type="checkbox" name="subject" value="Spring" /> Spring <br /> 
 			주민번호 : <input type="text" name="ssn" maxlength="6" size="7" required> -
 					<input type="text" name="ssn2" maxlength="1" size="1"> <br>
-				<input id="joinform_btn" type="button" value="회원가입">
+			
 		 </form> 
 	</div>
 

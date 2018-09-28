@@ -1,5 +1,5 @@
 function footerUI() {
-	return   '<footer>'
+	return   '<footer id="footer1">'
     +'<div class="container">'
     +'<div class="row">'
       +'<div class="col-lg-8 col-md-10 mx-auto">'

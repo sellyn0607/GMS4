@@ -36,12 +36,11 @@ import com.gms.web.cmm.Util;
 public class MemberCtrl {
 	@Autowired Member member;
 	@Autowired MemberMapper mapper;
-	@RequestMapping(value="/add/{dir}/{page}",method=RequestMethod.POST)
-	
-	public String add(@ModelAttribute("member") Member member,
-			@PathVariable String dir,
-			@PathVariable String page) {
-		return "public:"+dir+"/"+page+".tiles";
+	@PostMapping(value="/add")
+	public @ResponseBody void add(@RequestBody Member param) {
+		System.out.println("가입"+param.toString());
+		mapper.post(param);
+		//return "public:"+dir+"/"+page+".tiles";
 	}
 	@RequestMapping("/list")
 	public void list() {
@@ -69,15 +68,16 @@ public class MemberCtrl {
 	}
 	
 	@PostMapping("/login")
-	public @ResponseBody boolean login(@RequestBody Member param) {
-		//Map<String,Map> rmap = new HashMap<>();
+	public @ResponseBody Map<String,Object> login(@RequestBody Member param) {
+		Map<String,Object> rmap = new HashMap<>();
 		System.out.println("아이디:"+param.getUserid()+" /  비밀번호:"+param.getPassword());
 		boolean result=false;
 		if(Predicate.isEqual("1").test(mapper.login(param))) {
 			 Member m= mapper.get(param);
-			 result=true;
+			 rmap.put("userid", m.getUserid());
+			 rmap.put("result",true);
 		}
-		return result;
+		return rmap;
 			
 	}
 	@RequestMapping("/logout")

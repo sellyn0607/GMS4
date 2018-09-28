@@ -13,7 +13,7 @@ public interface MemberMapper {
 	public Integer count(Map<?,?> p);
 	public void put(Member p); // 업데이트
 	public void delete(Member p);
-	
+	public Member test();
 	public String login(Member p);
 	public String exist(String p);
 }

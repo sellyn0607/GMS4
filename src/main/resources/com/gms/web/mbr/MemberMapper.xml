@@ -35,4 +35,7 @@
   <update id="update">
   	update member set PASSWORD=#{password} ,roll= #{roll},teamid=#{teamid} where userid like #{userid}
   </update>
+  <select id="test">
+  SELECT USERID,TEAMID,NAME,ROLL,PASSWORD,SSN,AGE,GENDER FROM MEMBER
+  </select>
 </mapper>

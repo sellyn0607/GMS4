@@ -24,11 +24,25 @@ var ui={
 	btn: x=>{
 		
 			return $('<button/>').attr({id:x.id,type:'button'}).addClass('btn btn-'+x.class2).html(x.txt);
+	},
+	tbl : x=>{
+		let t=$('<table/>').attr('id',x.id);
+		let th=$('<th/>');
+		let tr=$('<tr/>');
+		
+		tr.appendTo(t);
+		$.each(x.list,(i,j)=>{
+			$('<th/>').text(j).appendTo(tr);		
+		})
+		return t;
+	},
+	page : x=>{
+		let nav = $('<nav/>'); // <- 네비게이션 
+		let ul= $('<ul/>').attr({id:x,class:"pagination justify-content-center"}).appendTo(nav); // <-ul 은 하나만 생성하면됨 
+		
+		
+		return nav;
+		
 	}
 }
-/*<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="basic-addon1">@</span>
-</div>
-<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-</div>*/
+
