@@ -12,14 +12,12 @@ import lombok.Data;
 @Component @Lazy
 public class Pagination implements Proxy{
 	int pageNum,count,pageCount,rowCount,blockCount,pageSize,blockSize,beginPage,endPage,beginRow,endRow,prevBlock,nextBlock;
-	String userid;
 	boolean existPrev,existNext; 
 	
 	@Override
 	public void carryOut(Map<?,?> m) {
 		this.pageNum = (int)m.get("pageNo");
 		this.pageSize = 5;
-		this.userid=(String)m.get("userid");
 		this.blockSize = 5;
 		this.rowCount = (int) m.get("count");
 		this.pageCount = (rowCount%pageSize==0)? rowCount/pageSize : rowCount/pageSize+1;

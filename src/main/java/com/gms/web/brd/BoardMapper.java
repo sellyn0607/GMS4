@@ -1,6 +1,6 @@
 package com.gms.web.brd;
 
-import java.util.List;
+import java.util.*;
 
 import com.gms.web.brd.Board;
 import com.gms.web.cmm.Criteria;
@@ -9,17 +9,17 @@ import com.gms.web.page.Pagination;
 
 public interface BoardMapper {
 
-  public void create(Board vo) throws Exception;
+  public void create(Board vo) ;
 
-  public Board read(Integer bno) throws Exception;
+  public Board read(String bno);
 
-  public void update(Board vo) throws Exception;
+  public void update(Board vo);
 
-  public void delete(Integer bno) throws Exception;
+  public void delete(String bno);
 
   public List<Board> listAll(Pagination p);
   
-  public List<Board> listOne(Pagination p);
+  public List<Board> listOne(Map<?,?> p);
   
   public int count();
   

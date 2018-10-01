@@ -1,11 +1,15 @@
 package com.gms.web.brd;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,7 +33,6 @@ public class BoardCtrl {
 		hm.clear();
 		hm.put("pageNo", pageNo);
 		hm.put("count", brdmp.count());
-		System.out.println("번호 !"+pageNo);
 		page.carryOut(hm);
 		hm.clear();
 		hm.put("list", brdmp.listAll(page));
@@ -37,17 +40,34 @@ public class BoardCtrl {
 		return hm;
 	}
 	
-	@RequestMapping("/boards2/{id}/{pageNo}")
+	@RequestMapping("/boards/{id}/{pageNo}")
 	public @ResponseBody Map<String,Object> mylist(@PathVariable int pageNo,@PathVariable String id){
-		System.out.println("여기안들어오냐?");	
 		hm.clear();
 		hm.put("pageNo", pageNo);
-		hm.put("userid", id);
 		hm.put("count", brdmp.listOneCount(id));
 		page.carryOut(hm);
-		hm.put("list", brdmp.listOne(page));
-		System.out.println("값!!!!!!"+brdmp.listOne(page));
+		hm.put("userid", id);
+		hm.put("beginRow", page.getBeginRow());
+		hm.put("endRow", page.getEndRow());
 		hm.put("page",page);
+		hm.put("list", brdmp.listOne(hm));	
 		return hm;
+	}
+	@PostMapping(value="/boards2/create")
+	public @ResponseBody void create(@RequestBody Board param){
+		brdmp.create(param);
+	}
+	@RequestMapping("/boards/select/{bno}")
+	public @ResponseBody Board select(@PathVariable String bno) {
+		return brdmp.read(bno);
+	}
+	@RequestMapping("/boards/delete/{bno}")
+	public @ResponseBody boolean delete(@PathVariable String bno) {
+		brdmp.delete(bno);
+		return true;
+	}
+	@PostMapping(value="/boards/update")
+	public @ResponseBody void update(@RequestBody Board param){
+		brdmp.update(param);
 	}
 }
