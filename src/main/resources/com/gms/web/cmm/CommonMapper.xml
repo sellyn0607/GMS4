@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gms.web.cmm.CommonMapper">
+
+	<resultMap type="attachFile" id="com.gms.web.brd.Attach">
+			<id property="seq" column="bbs_id"/>
+			<result property="name" column="name"/>
+			<result property="title" column="title"/>
+			<result property="content" column="content"/>
+		</resultMap>
+
+<resultMap id="boardDetail" type="com.gms.web.brd.Board" >
+
+	<id property="bno" column="bno"/>
+	<result property="title" column="title"/>
+	<result property="content" column="content"/>
+	<result property="writer" column="writer"/>
+	<result property="regdate" column="regdate"/>
+	<result property="viewcnt" column="viewcnt"/>
+	<result property="replycnt" column="replycnt"/>
+
+		<association property="mbr" javaType="Member" >
+			<id property="userid" column="userid"></id><!--PK라서  -->
+			<result property="teamid" column="teamid"/>
+			<result property="name" column="name"/>
+			<result property="ssn" column="ssn"/>
+			<result property="roll" column="roll"/>
+			<result property="pw" column="password"/>
+			<result property="age" column="age"/>
+			<result property="gender" column="gender"/>
+		</association>
+			<collection property="attachs" ofType="attach"></collection>	
+</resultMap>
+		
+	
+
+</mapper>

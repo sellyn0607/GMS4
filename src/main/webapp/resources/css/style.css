@@ -400,6 +400,19 @@ div#footer{
 #board_title,#board_ta{
 	margin: 10px;
 }
+#fileDrop{
+	width: 300px;
+	height: 300px;
+	border:1px dotted blue;
+}
+.small{
+	margin-left:3px;
+	font-weight:bold;
+	color:gray;
+}
+
+
+
 .navigation-primary__button,.navigation-primary__menu-btn,.navigation-primary__user__header>img,.navigation-drawer__user__unlogged__login,.navigation-drawer__user__unlogged__register{-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.navigation-primary__button,.navigation-primary__menu-btn,.navigation-primary__user__header>img,.navigation-drawer__user__unlogged__login,.navigation-drawer__user__unlogged__register{-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}body.drawer-open{overflow:hidden}#footer{position:relative !important;margin-top:60px}
 #mobile-top-banner{position:relative;display:block}
 @media (min-width: 1024px){#mobile-top-banner{display:none}}

@@ -18,6 +18,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
+	
 	<mvc:annotation-driven />
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
@@ -34,11 +35,12 @@
 			</list>
 		</property>
 	</bean>
+	
 	<!--  -->
 				
 	<!--  -->
 	<context:component-scan base-package="com.gms.web" /><!--  .controller -->
-	
+	<!-- <context:property-placeholder location="classpath:config/database.properties"/> -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
 		<property name="url" value="jdbc:mariadb://localhost:3306/mariadb" /> 
@@ -55,7 +57,26 @@
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg ref="sqlSessionFactoryBean" />
-	
 	</bean>	
+	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"/>
+   </bean> 
+   
+   <bean id="uploadPath" class="java.lang.String">
+	<constructor-arg value="C:\\Users\\1027\\Documents\\workspace-sts-3.9.5.RELEASE\\gms\\src\\main\\webapp\\resources\\img"/>
+   </bean>
+   <bean id="multipartResolver"
+   class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+   <bean id="LoginInterceptor" class="com.gms.web.interceptors.LoginInterceptor"/>
+   <mvc:interceptors>
+			<mvc:interceptor>
+				<mvc:mapping path="/member/login"/>
+				<ref bean="LoginInterceptor"/>
+			</mvc:interceptor>
+	</mvc:interceptors>  
+ 	
+
+	
+	<tx:annotation-driven/>
 	<mybatis-spring:scan base-package="com.gms.web"/>
 </beans>

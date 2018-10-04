@@ -66,7 +66,12 @@ public class MemberCtrl {
 		
 		return "redirect:/";
 	}
-	
+	@GetMapping("/auth/{id}")
+	public @ResponseBody Map<String,Object> auth(@PathVariable String id){
+		Map<String,Object> rmap = new HashMap<>();
+		String loginId = id;
+		return rmap;
+	}
 	@PostMapping("/login")
 	public @ResponseBody Map<String,Object> login(@RequestBody Member param) {
 		Map<String,Object> rmap = new HashMap<>();

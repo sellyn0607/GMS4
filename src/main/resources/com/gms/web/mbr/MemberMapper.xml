@@ -3,6 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gms.web.mbr.MemberMapper">
+<resultMap type="com.gms.web.mbr.Member" id="mbr">
+<id property="userid" column="userid"></id><!--PK라서  -->
+<result property="teamid" column="teamid"/>
+<result property="name" column="name"/>
+<result property="ssn" column="ssn"/>
+<result property="roll" column="roll"/>
+<result property="pw" column="password"/>
+<result property="age" column="age"/>
+<result property="gender" column="gender"/>
+</resultMap>
 <!--   <select id="selectOne" resultType="com.gms.web.domain.MemberDTO">
    SELECT USERID,NAME,AGE FROM MEMBER WHERE USERID LIKE #{userid} AND PASSWORD LIKE #{password}
   </select> -->

@@ -93,7 +93,7 @@ app.board=(()=>{
 					var tr = $('<tr/>').appendTo($('#tb_tb'));
 					$('<td/>').attr('width','5%').text(j.bno).appendTo(tr);
 					$('<td/>').attr('width','10%').text(j.title).appendTo(tr);
-					$('<td/>').attr('width','50%').text(j.content).appendTo(tr).click(e=>{
+					$('<td/>').attr({style:"width:50%;cursor:pointer"}).text(j.content).appendTo(tr).click(e=>{
 						app.service.readBoards(j.bno);
 					});
 					$('<td/>').attr('width','10%').text(j.writer).appendTo(tr);
@@ -195,6 +195,39 @@ app.permission=(()=>{
 									
 									
 								});
+								
+								$('<a />').attr({href:"#"}).html("D&D").appendTo($('#li_id')).click(e=>{
+									e.preventDefault();
+									$('#container').empty();
+									$('<h3/>').attr({id:'h3_'}).html('Ajax File Upload').appendTo($('#container'));
+									$('<div/>').attr({id:"fileDrop"}).appendTo($('#h3_')).on('dragenter dragover',e=>{
+										e.preventDefault();
+									});
+									$('#fileDrop').on('drop',e=>{
+										 e.preventDefault();
+										 var files = e.originalEvent.dataTransfer.files;
+						                    var file = files[0];
+						                    console.log(file);
+						                    var formData = new FormData();
+						                    formData.append('file',file);
+						                    $.ajax({
+						                        url:$.ctx()+'/uploadAjax',
+						                        data : formData,
+						                        dataType:'text',
+						                        processData:false,
+						                        contentType:false,
+						                        type:'post',
+						                        success:d=>{
+						                            alert(d);
+						                        }
+						                    })
+									})
+									
+									$('<div/>').attr({class:'uploadedList'}).appendTo($('#h3_'));
+									
+									
+									
+								});
 							
 							}else{
 								alert("아이디나 비밀번호가 틀리셨습니다.")
@@ -263,7 +296,9 @@ app.service={
 						var tr = $('<tr/>').appendTo($('#tb_tb'));
 						$('<td/>').attr('width','5%').text(j.bno).appendTo(tr);
 						$('<td/>').attr('width','10%').text(j.title).appendTo(tr);
-						$('<td/>').attr('width','50%').text(j.content).appendTo(tr);
+						$('<td/>').attr('width','50%').text(j.content).appendTo(tr).click(e=>{
+							app.service.readBoards(j.bno);
+						});
 						$('<td/>').attr('width','10%').text(j.writer).appendTo(tr);
 						$('<td/>').attr('width','15%').text(j.regdate).appendTo(tr);
 						$('<td/>').attr('width','15%').text(j.viewcnt).appendTo(tr);
@@ -301,7 +336,6 @@ app.service={
 			$('<br/>').appendTo($('#board_create_div'));
 			$('<textarea/>').attr({id:"board_content",rows:"10",cols:"100",placeholder:"내용을 입력해주세요"}).appendTo($('#board_create_div'));
 			$('<br/>').appendTo($('#board_create_div'));
-			
 			$('<a/>').attr({id:"board_create_btn",class:"navigation-primary__write-btn navigation-primary__button button-md"})
 			.text("작성").appendTo($('#board_create_div')).click(e=>{
 				
@@ -327,6 +361,30 @@ app.service={
 				app.board.init("1");
 			})
 			
+			$('<form id="form1" action="uploadForm" method="post" entype="multipart/form-data"> '
+			+'<input type="file" name="file"><input type="submit"></form>').appendTo($('#board_create_div')).click(e=>{
+				let frm = $('#form1');
+			    frm.method = 'POST';
+			    frm.enctype = 'multipart/form-data';
+			  
+			    var fileData = new FormData(frm);
+			  
+			    // ajax
+			    $.ajax({
+			        url:$.ctx()+"/boards/fileUpload",
+			        type:'POST',
+			        data:fileData,
+			        async:false,
+			        cache:false,
+			        contentType:false,
+			        processData:false
+			    }).done(function(response){
+			        alert(response);
+			    });
+
+
+			})
+			;
 			
 			
 		},	
@@ -338,6 +396,10 @@ app.service={
 				$('<br/>').appendTo($('#board_create_div'));
 				$('<div/>').attr({style:"width:917px;height:300px;border:1px solid black;text-align:left"}).text(d.content).appendTo($('#board_create_div'));
 				$('<br/>').appendTo($('#board_create_div'));
+				$('<a/> ').attr({class:"navigation-primary__write-btn navigation-primary__button button-md",style:""})
+				.text("뒤로").appendTo($('#board_create_div')).click(e=>{
+					app.board.init("1");
+				});
 				
 				if(sessionStorage.getItem('userid')===d.writer){
 				$('<a/> ').attr({class:"navigation-primary__write-btn navigation-primary__button button-md",style:"margin-left:650px"})

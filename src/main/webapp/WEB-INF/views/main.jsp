@@ -15,7 +15,9 @@
 	<link href="${context}/resources/css/style.css" rel="stylesheet">
 	 <link href="${context}/other_resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	 <link href="${context}/other_resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+	 
 	<!--  -->
+	<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><!--쿠키쿠키  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <%-- 	<script src="${context}/resources/css/style.css" ></script> --%>
